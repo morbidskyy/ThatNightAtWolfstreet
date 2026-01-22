@@ -1,50 +1,131 @@
-[gd_scene load_steps=3 format=3 uid="uid://i5apm5v3kqve"]
+[gd_scene load_steps=7 format=3 uid="uid://i5apm5v3kqve"]
 
-[ext_resource type="Script" uid="uid://83mwvlrbjap7" path="res://scripts/pause_bottons.gd" id="1_f1d2v"]
+[ext_resource type="Script" uid="uid://dalqecfu61b00" path="res://scripts/pause.gd" id="1_m0klm"]
+[ext_resource type="Shader" uid="uid://djswrnnqr3c4x" path="res://assets/shaders/pause_blur.gdshader" id="1_r8yp4"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_8kpkn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0klm"]
+shader = ExtResource("1_r8yp4")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_r8yp4"]
+resource_name = "blur"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pause_blur:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0000000475]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pause_container:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m0klm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pause_blur:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pause_container:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aicil"]
+_data = {
+&"RESET": SubResource("Animation_m0klm"),
+&"blur": SubResource("Animation_r8yp4")
+}
 
 [node name="pause" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_m0klm")
 
-[node name="pause_background" type="TextureRect" parent="."]
+[node name="pause_blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_m0klm")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_8kpkn")
 
-[node name="pause_bottons" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 0
-offset_left = 326.0
-offset_top = 124.0
-offset_right = 826.0
-offset_bottom = 524.0
+[node name="pause_container" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
-script = ExtResource("1_f1d2v")
 
-[node name="resume" type="Button" parent="pause_bottons"]
+[node name="pause_bottons" type="VBoxContainer" parent="pause_container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="resume" type="Button" parent="pause_container/pause_bottons"]
 layout_mode = 2
 text = "resume"
 
-[node name="pause_options" type="Button" parent="pause_bottons"]
+[node name="pause_options" type="Button" parent="pause_container/pause_bottons"]
 layout_mode = 2
 text = "options"
 
-[node name="start_menu" type="Button" parent="pause_bottons"]
+[node name="start_menu" type="Button" parent="pause_container/pause_bottons"]
 layout_mode = 2
 text = "starting menu"
 
-[connection signal="pressed" from="pause_bottons/resume" to="pause_bottons" method="_on_resume_pressed"]
-[connection signal="pressed" from="pause_bottons/pause_options" to="pause_bottons" method="_on_pause_options_pressed"]
-[connection signal="pressed" from="pause_bottons/start_menu" to="pause_bottons" method="_on_start_menu_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aicil")
+}
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="pause_container/pause_bottons/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pause_container/pause_bottons/pause_options" to="." method="_on_pause_options_pressed"]
+[connection signal="pressed" from="pause_container/pause_bottons/start_menu" to="." method="_on_start_menu_pressed"]
