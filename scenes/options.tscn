@@ -38,15 +38,15 @@ script = ExtResource("1_c2u1v")
 
 [node name="language" type="Button" parent="options_buttons"]
 layout_mode = 2
-text = "język"
+text = "language"
 
 [node name="sound" type="Button" parent="options_buttons"]
 layout_mode = 2
-text = "dźwięk"
+text = "sound"
 
 [node name="options_return" type="Button" parent="options_buttons"]
 layout_mode = 2
-text = "język"
+text = "return"
 
 [connection signal="pressed" from="options_buttons/language" to="options_buttons" method="_on_language_pressed"]
 [connection signal="pressed" from="options_buttons/sound" to="options_buttons" method="_on_sound_pressed"]

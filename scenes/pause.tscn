@@ -35,15 +35,15 @@ script = ExtResource("1_f1d2v")
 
 [node name="resume" type="Button" parent="pause_bottons"]
 layout_mode = 2
-text = "wznów"
+text = "resume"
 
 [node name="pause_options" type="Button" parent="pause_bottons"]
 layout_mode = 2
-text = "opcje"
+text = "options"
 
 [node name="start_menu" type="Button" parent="pause_bottons"]
 layout_mode = 2
-text = "kran startowy"
+text = "starting menu"
 
 [connection signal="pressed" from="pause_bottons/resume" to="pause_bottons" method="_on_resume_pressed"]
 [connection signal="pressed" from="pause_bottons/pause_options" to="pause_bottons" method="_on_pause_options_pressed"]
