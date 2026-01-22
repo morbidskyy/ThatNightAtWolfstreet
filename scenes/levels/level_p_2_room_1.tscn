@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1340r1rgdciy"]
+
+[ext_resource type="Texture2D" uid="uid://dqbimwegbpr8x" path="res://icon.svg" id="1_ab2wl"]
+
+[node name="level_p2_room1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(651, 367.5)
+scale = Vector2(11.171875, 6.7421875)
+texture = ExtResource("1_ab2wl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.056291588, 0.056291603, 0.056291595, 1)

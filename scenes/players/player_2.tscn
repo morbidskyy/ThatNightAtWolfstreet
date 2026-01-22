@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw3o0pds6ej3a"]
+
+[ext_resource type="Script" uid="uid://crccelvcn6ilg" path="res://scripts/top_down_controls.gd" id="1_n7000"]
+[ext_resource type="Texture2D" uid="uid://dqbimwegbpr8x" path="res://icon.svg" id="2_xd40s"]
+[ext_resource type="Texture2D" uid="uid://d0xvytohv1dsa" path="res://assets/players/player_2/light_cone.jpg" id="3_xd40s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp56j"]
+size = Vector2(116, 118)
+
+[node name="player2" type="CharacterBody2D"]
+script = ExtResource("1_n7000")
+
+[node name="player2_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_xd40s")
+
+[node name="player2_collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_rp56j")
+
+[node name="flashlight" type="PointLight2D" parent="."]
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(1.8070921, 3.1204257)
+color = Color(0.83947283, 0.8223233, 0, 1)
+energy = 2.5
+shadow_enabled = true
+texture = ExtResource("3_xd40s")
