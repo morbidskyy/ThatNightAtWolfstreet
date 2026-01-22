@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5apm5v3kqve"]
+
+[ext_resource type="Script" uid="uid://83mwvlrbjap7" path="res://scripts/pause_bottons.gd" id="1_f1d2v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8kpkn"]
+
+[node name="pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pause_background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_8kpkn")
+
+[node name="pause_bottons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 124.0
+offset_right = 826.0
+offset_bottom = 524.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_f1d2v")
+
+[node name="resume" type="Button" parent="pause_bottons"]
+layout_mode = 2
+text = "wznów"
+
+[node name="pause_options" type="Button" parent="pause_bottons"]
+layout_mode = 2
+text = "opcje"
+
+[node name="start_menu" type="Button" parent="pause_bottons"]
+layout_mode = 2
+text = "kran startowy"
+
+[connection signal="pressed" from="pause_bottons/resume" to="pause_bottons" method="_on_resume_pressed"]
+[connection signal="pressed" from="pause_bottons/pause_options" to="pause_bottons" method="_on_pause_options_pressed"]
+[connection signal="pressed" from="pause_bottons/start_menu" to="pause_bottons" method="_on_start_menu_pressed"]

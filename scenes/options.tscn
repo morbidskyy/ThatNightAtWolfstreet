@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8aybmax04se"]
+
+[ext_resource type="Script" uid="uid://165f7od4it4x" path="res://scripts/options_buttons.gd" id="1_c2u1v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6p1h6"]
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="options_background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_6p1h6")
+
+[node name="options_buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_c2u1v")
+
+[node name="language" type="Button" parent="options_buttons"]
+layout_mode = 2
+text = "język"
+
+[node name="sound" type="Button" parent="options_buttons"]
+layout_mode = 2
+text = "dźwięk"
+
+[node name="options_return" type="Button" parent="options_buttons"]
+layout_mode = 2
+text = "język"
+
+[connection signal="pressed" from="options_buttons/language" to="options_buttons" method="_on_language_pressed"]
+[connection signal="pressed" from="options_buttons/sound" to="options_buttons" method="_on_sound_pressed"]
+[connection signal="pressed" from="options_buttons/options_return" to="options_buttons" method="_on_options_return_pressed"]
