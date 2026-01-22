@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb2xht0jh0hh2"]
+
+[ext_resource type="Script" uid="uid://c62njcvsi1doy" path="res://scripts/menu_script.gd" id="1_yqeox"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_yqeox")
+
+[node name="buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start_button" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 280.0
+offset_right = 728.0
+offset_bottom = 352.0
+text = "Start Game"
+
+[node name="options_button" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 367.0
+offset_right = 730.0
+offset_bottom = 439.0
+text = "Options"
+
+[node name="exit_button" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 456.0
+offset_right = 728.0
+offset_bottom = 528.0
+text = "Exit Game"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 473.0
+offset_top = 66.0
+offset_right = 665.0
+offset_bottom = 192.0
+text = "That night at Wolfstreet"
+
+[connection signal="pressed" from="buttons/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="buttons/exit_button" to="." method="_on_exit_button_pressed"]
