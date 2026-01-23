@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://du11crhfiir6i"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wdlfu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdlfu"]
+
+[node name="sound_options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sound_options_background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_wdlfu")
+
+[node name="sound_options_buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="master_volume_label" type="Label" parent="sound_options_buttons"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_wdlfu")
+
+[node name="master_volume" type="HSlider" parent="sound_options_buttons"]
+layout_mode = 2
+
+[node name="music_label" type="Label" parent="sound_options_buttons"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_wdlfu")
+
+[node name="music" type="HSlider" parent="sound_options_buttons"]
+layout_mode = 2
+
+[node name="sfx_label" type="Label" parent="sound_options_buttons"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_wdlfu")
+
+[node name="sfx" type="HSlider" parent="sound_options_buttons"]
+layout_mode = 2
+
+[node name="language_options_return" type="Button" parent="sound_options_buttons"]
+layout_mode = 2
+text = "return"

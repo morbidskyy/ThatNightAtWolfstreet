@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvvlwe8d7utmg"]
+
+[ext_resource type="Script" uid="uid://nb5rq286sqwf" path="res://scripts/language_options_buttons.gd" id="1_11n60"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k7084"]
+
+[node name="language_options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="language_options_background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k7084")
+
+[node name="language_options_buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_11n60")
+
+[node name="english" type="Button" parent="language_options_buttons"]
+layout_mode = 2
+text = "english"
+
+[node name="polish" type="Button" parent="language_options_buttons"]
+layout_mode = 2
+text = "polish"
+
+[node name="language_options_return" type="Button" parent="language_options_buttons"]
+layout_mode = 2
+text = "return"
+
+[connection signal="pressed" from="language_options_buttons/english" to="language_options_buttons" method="_on_english_pressed"]
+[connection signal="pressed" from="language_options_buttons/polish" to="language_options_buttons" method="_on_polish_pressed"]
+[connection signal="pressed" from="language_options_buttons/language_options_return" to="language_options_buttons" method="_on_language_options_return_pressed"]
