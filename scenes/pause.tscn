@@ -112,10 +112,6 @@ alignment = 1
 layout_mode = 2
 text = "resume"
 
-[node name="pause_options" type="Button" parent="pause_container/pause_bottons"]
-layout_mode = 2
-text = "options"
-
 [node name="start_menu" type="Button" parent="pause_container/pause_bottons"]
 layout_mode = 2
 text = "starting menu"
@@ -127,5 +123,4 @@ libraries = {
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="pause_container/pause_bottons/resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="pause_container/pause_bottons/pause_options" to="." method="_on_pause_options_pressed"]
 [connection signal="pressed" from="pause_container/pause_bottons/start_menu" to="." method="_on_start_menu_pressed"]
