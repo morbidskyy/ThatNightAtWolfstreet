@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+
 uniform vec3 luminance: source_color = vec3(0.3086, 0.6094, 0.0820);
 uniform vec3 base_color: source_color = vec3(0.2, 1.0, 0.4);
 uniform float brightness: hint_range(0.1, 10.0, 0.01) = 2.0;
@@ -11,6 +12,7 @@ uniform float edge_y: hint_range(0.0, 6.0, 0.01) = 4.0;
 float noise_random(float x) {
 	return fract(cos(mod(dot(vec2(x, x), vec2(9.0, 6.0)), 3.0)) * 43758.5453);
 }
+
 
 void fragment() {
 	vec2 uv = UV - 0.5;
