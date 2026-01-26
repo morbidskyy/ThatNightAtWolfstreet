@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://du11crhfiir6i"]
+[gd_scene load_steps=5 format=3 uid="uid://du11crhfiir6i"]
+
+[ext_resource type="Script" uid="uid://b4euryiw70bqk" path="res://scripts/sound_options_buttons.gd" id="1_wx328"]
+[ext_resource type="Script" uid="uid://qy2tgdwu1lbj" path="res://scripts/sound.gd" id="2_3sc08"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wdlfu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdlfu"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="sound_options" type="Control"]
 layout_mode = 3
@@ -34,31 +38,52 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("1_wx328")
 
 [node name="master_volume_label" type="Label" parent="sound_options_buttons"]
 layout_mode = 2
-text = "SFX"
+text = "Master volume"
 label_settings = SubResource("LabelSettings_wdlfu")
+horizontal_alignment = 1
 
-[node name="master_volume" type="HSlider" parent="sound_options_buttons"]
+[node name="Master" type="HSlider" parent="sound_options_buttons"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_3sc08")
+bus_name = "Master"
 
 [node name="music_label" type="Label" parent="sound_options_buttons"]
 layout_mode = 2
-text = "SFX"
+text = "Music volume"
 label_settings = SubResource("LabelSettings_wdlfu")
+horizontal_alignment = 1
 
-[node name="music" type="HSlider" parent="sound_options_buttons"]
+[node name="Music" type="HSlider" parent="sound_options_buttons"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_3sc08")
+bus_name = "music"
 
 [node name="sfx_label" type="Label" parent="sound_options_buttons"]
 layout_mode = 2
-text = "SFX"
+text = "SFX volume"
 label_settings = SubResource("LabelSettings_wdlfu")
+horizontal_alignment = 1
 
-[node name="sfx" type="HSlider" parent="sound_options_buttons"]
+[node name="SFX" type="HSlider" parent="sound_options_buttons"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_3sc08")
+bus_name = "sfx"
 
 [node name="language_options_return" type="Button" parent="sound_options_buttons"]
 layout_mode = 2
 text = "return"
+
+[connection signal="ready" from="sound_options_buttons/Master" to="sound_options_buttons/Master" method="_on_ready"]
+[connection signal="ready" from="sound_options_buttons/Music" to="sound_options_buttons/Music" method="_on_ready"]
+[connection signal="ready" from="sound_options_buttons/SFX" to="sound_options_buttons/SFX" method="_on_ready"]
+[connection signal="pressed" from="sound_options_buttons/language_options_return" to="sound_options_buttons" method="_on_language_options_return_pressed"]

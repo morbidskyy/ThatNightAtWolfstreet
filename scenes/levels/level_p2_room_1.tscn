@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1340r1rgdciy"]
+[gd_scene load_steps=3 format=3 uid="uid://b1340r1rgdciy"]
 
-[ext_resource type="Texture2D" uid="uid://dqbimwegbpr8x" path="res://icon.svg" id="1_u0bty"]
+[ext_resource type="Texture2D" uid="uid://bpuxgwycpwrnt" path="res://assets/players/test_guy.png" id="1_f8ic4"]
+[ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/players/steps.wav" id="2_jqo5w"]
 
 [node name="level_p2_room1" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(651, 367.5)
-scale = Vector2(11.171875, 6.7421875)
-texture = ExtResource("1_u0bty")
+[node name="test_guy_sprite" type="Sprite2D" parent="."]
+position = Vector2(701, 317.5)
+scale = Vector2(5, 5)
+texture = ExtResource("1_f8ic4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.056291588, 0.056291603, 0.056291595, 1)
+
+[node name="Steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jqo5w")
