@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu2uhcyassuhu"
-path="res://.godot/imported/room_walls_floors_and_decorations.png-8af9c3237bf0bab40eb63906cea51006.ctex"
+uid="uid://ble0efo8xrqn"
+path="res://.godot/imported/room_walls_floors_and_decorations_OLD.png-71c90835c8204a063babe6ed5648f983.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/room_walls_floors_and_decorations.png"
-dest_files=["res://.godot/imported/room_walls_floors_and_decorations.png-8af9c3237bf0bab40eb63906cea51006.ctex"]
+source_file="res://assets/tilesets/room_walls_floors_and_decorations_OLD.png"
+dest_files=["res://.godot/imported/room_walls_floors_and_decorations_OLD.png-71c90835c8204a063babe6ed5648f983.ctex"]
 
 [params]
 
