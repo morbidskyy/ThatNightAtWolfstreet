@@ -1,15 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://cecyf0l62q07t"]
+[gd_scene load_steps=7 format=4 uid="uid://cecyf0l62q07t"]
 
 [ext_resource type="TileSet" uid="uid://bhkhns2ga1vlx" path="res://assets/tilesets/room_deco_tileset.tres" id="1_pga3b"]
 [ext_resource type="PackedScene" uid="uid://bu3bt1x2s1mpm" path="res://scenes/players/player_3.tscn" id="2_pga3b"]
+[ext_resource type="Shader" uid="uid://c222ntv0jx2xf" path="res://assets/shaders/night_vision.gdshader" id="3_x164o"]
+[ext_resource type="Script" uid="uid://cyuc6e73racm5" path="res://scripts/night_vision_toggle.gd" id="4_od7kd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x164o"]
+shader = ExtResource("3_x164o")
+shader_parameter/luminance = Color(0.3086, 0.6094, 0.082, 1)
+shader_parameter/base_color = Color(0.2, 1, 0.4, 1)
+shader_parameter/brightness = 2.0
+shader_parameter/noise_level = 0.4
+shader_parameter/vignette_level = 0.4
+shader_parameter/edge_x = 0.75
+shader_parameter/edge_y = 4.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s67e3"]
 
 [node name="level_p3_room_1" type="Node2D"]
 
 [node name="room_base" type="TileMapLayer" parent="."]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAD9//3/AAAHAAAAAAD+//3/AAAHAAAAAAD///3/AAAHAAAAAAAAAP3/AAAHAAAAAAABAP3/AAAHAAAAAAACAP3/AAAHAAAAAAADAP3/AAAHAAAAAAD8//3/AAAHAAAAAAAEAP3/AAAIAAAAAAD7//3/AAAGAAAAAAD7//7/AAAGAAEAAAD7////AAAGAAEAAAAEAP7/AAAIAAEAAAAEAP//AAAIAAEAAAAEAAAAAAAIAAIAAAAEAAIAAAAIAAQAAAAEAAEAAAAIAAMAAAD7/wAAAAAGAAIAAAD7/wEAAAAGAAMAAAD7/wIAAAAGAAQAAAD7/wMAAAAGAAUAAAD7/wQAAAAGAAYAAAAEAAQAAAAIAAYAAAAEAAMAAAAIAAUAAAD8/wQAAAAHAAYAAAD9/wQAAAAHAAYAAAD+/wQAAAAHAAYAAAD//wQAAAAHAAYAAAAAAAQAAAAHAAYAAAABAAQAAAAHAAYAAAACAAQAAAAHAAYAAAADAAQAAAAHAAYAAAD8//7/AAAHAAcAAAD8////AAAHAAcAAAD8/wAAAAAHAAcAAAD8/wEAAAAHAAcAAAD8/wIAAAAHAAcAAAD8/wMAAAAHAAcAAAD9/wIAAAAHAAcAAAD9/wMAAAAHAAcAAAD+/wIAAAAHAAcAAAD+/wMAAAAHAAcAAAD//wIAAAAHAAcAAAD//wMAAAAHAAcAAAAAAAIAAAAHAAcAAAAAAAMAAAAHAAcAAAABAAIAAAAHAAcAAAABAAMAAAAHAAcAAAACAAIAAAAHAAcAAAACAAMAAAAHAAcAAAADAAIAAAAIAAcAAAADAAMAAAAIAAcAAAD9//7/AAAHAAcAAAD9////AAAHAAcAAAD9/wAAAAAHAAcAAAD9/wEAAAAHAAcAAAD+//7/AAAHAAcAAAD+////AAAHAAcAAAD+/wAAAAAHAAcAAAD+/wEAAAAHAAcAAAD///7/AAAHAAcAAAD/////AAAHAAcAAAD//wAAAAAHAAcAAAD//wEAAAAHAAcAAAAAAP7/AAAHAAcAAAAAAP//AAAHAAcAAAAAAAAAAAAHAAcAAAAAAAEAAAAHAAcAAAABAP7/AAAHAAcAAAABAP//AAAHAAcAAAABAAAAAAAIAAcAAAABAAEAAAAHAAcAAAACAP7/AAAHAAcAAAACAP//AAAHAAcAAAACAAAAAAAHAAcAAAACAAEAAAAHAAcAAAADAP7/AAAHAAcAAAADAP//AAAHAAcAAAADAAAAAAAHAAcAAAADAAEAAAAHAAcAAAA=")
 tile_set = ExtResource("1_pga3b")
 
 [node name="room_deco" type="TileMapLayer" parent="."]
 
 [node name="player_3" parent="." instance=ExtResource("2_pga3b")]
 visible = true
+position = Vector2(-2, 33)
+
+[node name="canvas_dark" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.17688099, 0.072771184, 0.21752772, 1)
+
+[node name="night_vision_toggle" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_x164o")
+position = Vector2(8.890488, 30.751648)
+scale = Vector2(-532.71, 283.777)
+texture = SubResource("CanvasTexture_s67e3")
+script = ExtResource("4_od7kd")

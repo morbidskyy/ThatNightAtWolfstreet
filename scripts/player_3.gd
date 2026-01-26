@@ -25,3 +25,7 @@ func _process(delta: float) -> void:
 		animation_p3.play("p3_left_walk")
 	else:
 		animation_p3.play("p3_idle")
+
+func player3():
+	passs
+	
