@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed : int = 250
 
+
 func get_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_dir * speed

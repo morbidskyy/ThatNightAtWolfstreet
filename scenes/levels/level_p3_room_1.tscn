@@ -12,4 +12,4 @@ tile_set = ExtResource("1_pga3b")
 [node name="room_deco" type="TileMapLayer" parent="."]
 
 [node name="player_3" parent="." instance=ExtResource("2_pga3b")]
-visible = false
+visible = true
