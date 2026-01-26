@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://du11crhfiir6i"]
+[gd_scene load_steps=7 format=3 uid="uid://du11crhfiir6i"]
 
 [ext_resource type="Script" uid="uid://b4euryiw70bqk" path="res://scripts/sound_options_buttons.gd" id="1_wx328"]
 [ext_resource type="Script" uid="uid://qy2tgdwu1lbj" path="res://scripts/sound.gd" id="2_3sc08"]
 
+[sub_resource type="Gradient" id="Gradient_3sc08"]
+colors = PackedColorArray(0, 0, 0, 1, 0.09803922, 0.039215688, 0.13725491, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7tkai"]
+gradient = SubResource("Gradient_3sc08")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_wdlfu"]
+diffuse_texture = SubResource("GradientTexture2D_7tkai")
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdlfu"]
-font_color = Color(0, 0, 0, 1)
 
 [node name="sound_options" type="Control"]
 layout_mode = 3
@@ -37,6 +45,7 @@ offset_right = 250.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
 alignment = 1
 script = ExtResource("1_wx328")
 

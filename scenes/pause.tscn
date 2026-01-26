@@ -106,6 +106,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="resume" type="Button" parent="pause_container/pause_bottons"]

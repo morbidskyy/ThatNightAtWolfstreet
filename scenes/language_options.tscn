@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvvlwe8d7utmg"]
+[gd_scene load_steps=4 format=3 uid="uid://bvvlwe8d7utmg"]
 
 [ext_resource type="Script" uid="uid://nb5rq286sqwf" path="res://scripts/language_options_buttons.gd" id="1_11n60"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_k7084"]
+[sub_resource type="Gradient" id="Gradient_11n60"]
+colors = PackedColorArray(0, 0, 0, 1, 0.09803922, 0.039215688, 0.13725491, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k7084"]
+gradient = SubResource("Gradient_11n60")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
 [node name="language_options" type="Control"]
 layout_mode = 3
@@ -19,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_k7084")
+texture = SubResource("GradientTexture2D_k7084")
 
 [node name="language_options_buttons" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 0)
@@ -33,6 +39,7 @@ offset_right = 250.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 alignment = 1
 script = ExtResource("1_11n60")
 
