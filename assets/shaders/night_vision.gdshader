@@ -9,6 +9,7 @@ uniform float vignette_level: hint_range(0.0, 1.0, 0.1) = 0.4;
 uniform float edge_x: hint_range(0.0, 1.0, 0.01) = 0.75;
 uniform float edge_y: hint_range(0.0, 6.0, 0.01) = 4.0;
 
+
 float noise_random(float x) {
 	return fract(cos(mod(dot(vec2(x, x), vec2(9.0, 6.0)), 3.0)) * 43758.5453);
 }
@@ -26,5 +27,5 @@ void fragment() {
 	color *= smoothstep(length(edge), 1.0, vignette_level);
 	vec3 vision_color = base_color;
 	color = dot(color, luminance) * vision_color;
-	COLOR = vec4(color * brightness, 1.0);
+	COLOR = vec4(color * brightness,  0.5);
 }

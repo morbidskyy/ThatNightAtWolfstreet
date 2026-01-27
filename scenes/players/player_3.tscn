@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu3bt1x2s1mpm"]
+[gd_scene load_steps=13 format=3 uid="uid://bu3bt1x2s1mpm"]
 
 [ext_resource type="Script" uid="uid://cedksjied678l" path="res://scripts/player_3.gd" id="1_abp2m"]
 [ext_resource type="Texture2D" uid="uid://dpux62bdnlnpv" path="res://assets/players/player_3/player3.png" id="2_abp2m"]
 [ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/players/steps.wav" id="3_7c4cj"]
+[ext_resource type="PackedScene" uid="uid://bdxgtd3y8uor1" path="res://assets/players/player_3/night_vision_toggle.tscn" id="4_7c4cj"]
 
 [sub_resource type="Animation" id="Animation_syldb"]
 length = 0.001
@@ -81,9 +82,8 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_7c4cj"]
-resource_name = "p3_right_walk"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_qygei"]
+resource_name = "p3_idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,26 +91,11 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [0]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../steps")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_7c4cj")
-}],
-"times": PackedFloat32Array(0.26666668)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_j1mav"]
 resource_name = "p3_left_walk"
@@ -142,8 +127,9 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_qygei"]
-resource_name = "p3_idle"
+[sub_resource type="Animation" id="Animation_7c4cj"]
+resource_name = "p3_right_walk"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,11 +137,26 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [12, 13, 14, 15]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../steps")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_7c4cj")
+}],
+"times": PackedFloat32Array(0.26666668)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j1mav"]
 _data = {
@@ -167,11 +168,11 @@ _data = {
 &"p3_right_walk": SubResource("Animation_7c4cj")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c4cj"]
-size = Vector2(24, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abp2m"]
+radius = 7.0
+height = 14.0
 
 [node name="player_3" type="CharacterBody2D"]
-visible = false
 script = ExtResource("1_abp2m")
 
 [node name="player3_sprite" type="Sprite2D" parent="."]
@@ -185,9 +186,16 @@ libraries = {
 }
 
 [node name="player3_collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7c4cj")
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_abp2m")
 
 [node name="steps" type="AudioStreamPlayer2D" parent="."]
 
 [node name="camera_p3" type="Camera2D" parent="."]
 zoom = Vector2(2.3, 2.3)
+
+[node name="night_vision_toggle" parent="." instance=ExtResource("4_7c4cj")]
+offset_left = -262.0
+offset_top = -147.0
+offset_right = -262.0
+offset_bottom = -147.0

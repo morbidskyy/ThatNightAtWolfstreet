@@ -26,6 +26,4 @@ func _process(delta: float) -> void:
 	else:
 		animation_p3.play("p3_idle")
 
-func player3():
-	passs
 	
