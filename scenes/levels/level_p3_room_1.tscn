@@ -12,6 +12,7 @@ tile_map_data = PackedByteArray("AAD9//3/AQAHAAAAAAD+//3/AQAHAAAAAAD///3/AQAHAAA
 tile_set = ExtResource("1_pga3b")
 
 [node name="room_deco" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_pga3b")
 
 [node name="player_3" parent="." instance=ExtResource("2_pga3b")]
 position = Vector2(-2, 33)
