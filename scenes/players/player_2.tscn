@@ -1,21 +1,201 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw3o0pds6ej3a"]
+[gd_scene load_steps=13 format=3 uid="uid://dw3o0pds6ej3a"]
 
-[ext_resource type="Script" uid="uid://crccelvcn6ilg" path="res://scripts/top_down_controls.gd" id="1_n7000"]
-[ext_resource type="Texture2D" uid="uid://dqbimwegbpr8x" path="res://icon.svg" id="2_xd40s"]
+[ext_resource type="Script" uid="uid://c1q34qv7f1i5o" path="res://scripts/player_2.gd" id="1_rp56j"]
+[ext_resource type="Texture2D" uid="uid://dxhenu354545j" path="res://assets/players/player_2/player2.png" id="2_rp56j"]
 [ext_resource type="Texture2D" uid="uid://d0xvytohv1dsa" path="res://assets/players/player_2/light_cone.jpg" id="3_xd40s"]
+[ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/players/steps.wav" id="4_4lqqq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp56j"]
-size = Vector2(116, 118)
+[sub_resource type="Animation" id="Animation_nv60d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player2/player2_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player2/player2_steps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lt78j"]
+resource_name = "player_2_idle"
+loop_mode = 1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player2/player2_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_6wbf2"]
+resource_name = "player2_walking_down"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player2/player2_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player2/player2_steps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_l18ty"]
+resource_name = "player2_walking_left"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player2/player2_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player2/player2_steps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ctfpg"]
+resource_name = "player2_walking_right"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player2/player2_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player2/player2_steps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5niii"]
+resource_name = "player2_walking_up"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player2/player2_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player2/player2_steps:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lt78j"]
+_data = {
+&"RESET": SubResource("Animation_nv60d"),
+&"player2_idle": SubResource("Animation_lt78j"),
+&"player2_walking_down": SubResource("Animation_6wbf2"),
+&"player2_walking_left": SubResource("Animation_l18ty"),
+&"player2_walking_right": SubResource("Animation_ctfpg"),
+&"player2_walking_up": SubResource("Animation_5niii")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp56j"]
+height = 26.0
 
 [node name="player2" type="CharacterBody2D"]
-script = ExtResource("1_n7000")
+script = ExtResource("1_rp56j")
 
 [node name="player2_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_xd40s")
+texture = ExtResource("2_rp56j")
+hframes = 4
+vframes = 4
+
+[node name="player2_animation" type="AnimationPlayer" parent="player2_sprite"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_lt78j")
+}
 
 [node name="player2_collision" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_rp56j")
+position = Vector2(0, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rp56j")
 
 [node name="flashlight" type="PointLight2D" parent="."]
 position = Vector2(0, 1.1920929e-07)
@@ -24,3 +204,11 @@ color = Color(0.83947283, 0.8223233, 0, 1)
 energy = 2.5
 shadow_enabled = true
 texture = ExtResource("3_xd40s")
+
+[node name="player2_camera" type="Camera2D" parent="."]
+zoom = Vector2(2.3, 2.3)
+
+[node name="player2_steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4lqqq")
+mix_target = 2
+bus = &"sfx"
