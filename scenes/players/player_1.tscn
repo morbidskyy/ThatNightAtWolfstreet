@@ -1,23 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://b32efwi1xc15v"]
 
-[ext_resource type="Script" path="res://scripts/player_1.gd" id="1_6wyko"]
+[ext_resource type="Script" uid="uid://dowfop4gvg7im" path="res://scripts/player_1.gd" id="1_6wyko"]
 [ext_resource type="Texture2D" uid="uid://cwa1muaemudlf" path="res://assets/players/player_1/player1.png" id="2_d4nmj"]
 [ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/players/steps.wav" id="3_lirf0"]
-
-[sub_resource type="Animation" id="Animation_qohf6"]
-resource_name = "p1_idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_bro1e"]
 length = 0.001
@@ -34,11 +19,8 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_it8sy"]
-resource_name = "p1_walk_frwd"
-length = 1.0000111
-loop_mode = 1
-step = 0.333
+[sub_resource type="Animation" id="Animation_qohf6"]
+resource_name = "p1_idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,26 +28,29 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.24960884, 0.5131718, 0.7604661),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_81ukp"]
+resource_name = "p1_spin"
+length = 0.8
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21439034, 0.44340146, 0.6534738),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 2]
+"values": [0, 8, 6, 12]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../step_1")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_lirf0")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_6wyko"]
 resource_name = "p1_walk_back"
@@ -83,6 +68,39 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 5]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../step_1")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_lirf0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_it8sy"]
+resource_name = "p1_walk_frwd"
+length = 1.0000111
+loop_mode = 1
+step = 0.333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24960884, 0.5131718, 0.7604661),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 2]
 }
 tracks/1/type = "audio"
 tracks/1/imported = false
@@ -165,24 +183,6 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
-
-[sub_resource type="Animation" id="Animation_81ukp"]
-resource_name = "p1_spin"
-length = 0.8
-loop_mode = 1
-step = 0.333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.21439034, 0.44340146, 0.6534738),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 8, 6, 12]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxtj5"]
 _data = {
