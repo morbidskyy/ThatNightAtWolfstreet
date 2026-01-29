@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwufagvacdn0g"]
+[gd_scene load_steps=4 format=3 uid="uid://dwufagvacdn0g"]
 
 [ext_resource type="Script" uid="uid://c62njcvsi1doy" path="res://scripts/menu_script.gd" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://dfmjcjst22m5r" path="res://assets/fonts/alagard.ttf" id="2_vjb58"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_con2f"]
+font = ExtResource("2_vjb58")
+font_size = 91
+outline_size = 21
+outline_color = Color(0.23952416, 0.1475111, 0.34694287, 1)
+shadow_size = 21
+shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 0.14509805)
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_yqeox")
@@ -35,12 +44,13 @@ offset_right = 728.0
 offset_bottom = 528.0
 text = "Exit Game"
 
-[node name="Label" type="Label" parent="."]
-offset_left = 473.0
-offset_top = 66.0
-offset_right = 665.0
-offset_bottom = 192.0
+[node name="Title" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 111.0
+offset_right = 1087.0
+offset_bottom = 237.0
 text = "That night at Wolfstreet"
+label_settings = SubResource("LabelSettings_con2f")
 
 [connection signal="pressed" from="buttons/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
