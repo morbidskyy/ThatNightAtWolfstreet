@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwufagvacdn0g"]
+[gd_scene load_steps=5 format=3 uid="uid://dwufagvacdn0g"]
 
 [ext_resource type="Script" uid="uid://c62njcvsi1doy" path="res://scripts/menu_script.gd" id="1_yqeox"]
 [ext_resource type="FontFile" uid="uid://dfmjcjst22m5r" path="res://assets/fonts/alagard.ttf" id="2_vjb58"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_vjb58"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_con2f"]
 font = ExtResource("2_vjb58")
@@ -13,6 +15,18 @@ shadow_color = Color(0.003921569, 0.003921569, 0.003921569, 0.14509805)
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_yqeox")
+
+[node name="menu_background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1151.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_vjb58")
 
 [node name="buttons" type="Control" parent="."]
 layout_mode = 3
