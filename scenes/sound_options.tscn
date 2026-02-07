@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://du11crhfiir6i"]
+[gd_scene load_steps=8 format=3 uid="uid://du11crhfiir6i"]
 
-[ext_resource type="Script" uid="uid://b4euryiw70bqk" path="res://scripts/sound_options_buttons.gd" id="1_wx328"]
 [ext_resource type="FontFile" uid="uid://dfmjcjst22m5r" path="res://assets/fonts/alagard.ttf" id="2_btipn"]
-[ext_resource type="Script" uid="uid://dj10swrgkwd26" path="res://scripts/master_volume.gd" id="3_btipn"]
 [ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="4_j2lph"]
 
 [sub_resource type="Gradient" id="Gradient_3sc08"]
@@ -15,6 +13,8 @@ fill_to = Vector2(0.5, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wdlfu"]
 diffuse_texture = SubResource("GradientTexture2D_7tkai")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tkai"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdlfu"]
 font = ExtResource("2_btipn")
@@ -39,66 +39,73 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_wdlfu")
 
-[node name="sound_options_buttons" type="VBoxContainer" parent="."]
+[node name="sound_options_buttons" type="Panel" parent="."]
 custom_minimum_size = Vector2(303, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -101.5
-offset_right = 101.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
-alignment = 1
-script = ExtResource("1_wx328")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7tkai")
 
 [node name="master_volume_label" type="Label" parent="sound_options_buttons"]
-layout_mode = 2
+layout_mode = 0
+offset_top = 175.0
+offset_right = 303.0
+offset_bottom = 204.0
 text = "Master volume"
 label_settings = SubResource("LabelSettings_wdlfu")
 horizontal_alignment = 1
 
 [node name="Master" type="HSlider" parent="sound_options_buttons"]
-layout_mode = 2
+layout_mode = 0
+offset_top = 219.0
+offset_right = 303.0
+offset_bottom = 235.0
 min_value = -80.0
 max_value = 0.0
-step = 0.01
-script = ExtResource("3_btipn")
-audio_bus_name = "Master"
+value = -40.0
 
 [node name="music_label" type="Label" parent="sound_options_buttons"]
-layout_mode = 2
+layout_mode = 0
+offset_top = 250.0
+offset_right = 303.0
+offset_bottom = 279.0
 text = "Music volume"
 label_settings = SubResource("LabelSettings_wdlfu")
 horizontal_alignment = 1
 
 [node name="Music" type="HSlider" parent="sound_options_buttons"]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-value = 1.0
+layout_mode = 0
+offset_top = 294.0
+offset_right = 303.0
+offset_bottom = 310.0
+value = 50.0
 
 [node name="sfx_label" type="Label" parent="sound_options_buttons"]
-layout_mode = 2
+layout_mode = 0
+offset_top = 325.0
+offset_right = 303.0
+offset_bottom = 354.0
 text = "SFX volume"
 label_settings = SubResource("LabelSettings_wdlfu")
 horizontal_alignment = 1
 
 [node name="SFX" type="HSlider" parent="sound_options_buttons"]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-value = 1.0
+layout_mode = 0
+offset_top = 369.0
+offset_right = 303.0
+offset_bottom = 385.0
+value = 50.0
 
 [node name="language_options_return" type="Button" parent="sound_options_buttons"]
 custom_minimum_size = Vector2(0, 72)
-layout_mode = 2
+layout_mode = 0
+offset_top = 400.0
+offset_right = 303.0
+offset_bottom = 472.0
 theme_override_fonts/font = ExtResource("4_j2lph")
 theme_override_font_sizes/font_size = 20
 text = "return"
-
-[connection signal="value_changed" from="sound_options_buttons/Master" to="sound_options_buttons/Master" method="_on_value_changed"]
-[connection signal="ready" from="sound_options_buttons/SFX" to="sound_options_buttons/SFX" method="_on_ready"]
-[connection signal="pressed" from="sound_options_buttons/language_options_return" to="sound_options_buttons" method="_on_language_options_return_pressed"]
