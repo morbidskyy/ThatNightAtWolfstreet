@@ -1,10 +1,19 @@
 extends Control
 
+var is_ready = true
+
 func _on_ready() -> void:
 	$nv_animation.play("RESET")
 	hide()
 	
 func _input(_event):
-	if Input.is_action_just_pressed("toggle_nv"):
+	if Input.is_action_just_pressed("toggle_nv") and is_ready:
+		is_ready = false
+		$"../nv_cooldown".start()
 		$nv_animation.play("nv_animation")
 		show()
+
+func _on_nv_cooldown_timeout() -> void:
+	$"../nv_cooldown".start()
+	is_ready = true
+	hide()
