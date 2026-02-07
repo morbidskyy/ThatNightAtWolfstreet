@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dowfop4gvg7im" path="res://scripts/player_1.gd" id="1_6wyko"]
 [ext_resource type="Texture2D" uid="uid://cwa1muaemudlf" path="res://assets/players/player_1/player1.png" id="2_d4nmj"]
-[ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/players/steps.wav" id="3_lirf0"]
+[ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/audio/steps.wav" id="3_lirf0"]
 
 [sub_resource type="Animation" id="Animation_bro1e"]
 length = 0.001

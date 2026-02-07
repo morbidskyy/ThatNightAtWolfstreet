@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://i5apm5v3kqve"]
+[gd_scene load_steps=11 format=3 uid="uid://i5apm5v3kqve"]
 
 [ext_resource type="Script" uid="uid://dalqecfu61b00" path="res://scripts/pause.gd" id="1_m0klm"]
 [ext_resource type="Shader" uid="uid://djswrnnqr3c4x" path="res://assets/shaders/pause_blur.gdshader" id="1_r8yp4"]
+[ext_resource type="FontFile" uid="uid://dfmjcjst22m5r" path="res://assets/fonts/alagard.ttf" id="3_aicil"]
+[ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="4_jn4bt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m0klm"]
 shader = ExtResource("1_r8yp4")
 shader_parameter/lod = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1fnm"]
+font = ExtResource("3_aicil")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_r8yp4"]
+font = ExtResource("4_jn4bt")
+font_size = 12
+font_color = Color(1, 1, 1, 0.39215687)
 
 [sub_resource type="Animation" id="Animation_m0klm"]
 length = 0.001
@@ -103,19 +114,49 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="pause_bottons" type="VBoxContainer" parent="pause_container"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(303, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="resume" type="Button" parent="pause_container/pause_bottons"]
+[node name="Label" type="Label" parent="pause_container/pause_bottons"]
 layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_r1fnm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resume" type="Button" parent="pause_container/pause_bottons"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jn4bt")
+theme_override_font_sizes/font_size = 20
 text = "resume"
 
 [node name="start_menu" type="Button" parent="pause_container/pause_bottons"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jn4bt")
+theme_override_font_sizes/font_size = 20
 text = "starting menu"
+
+[node name="Label" type="Label" parent="pause_container/pause_bottons/start_menu"]
+custom_minimum_size = Vector2(303, 0)
+layout_mode = 0
+offset_top = 75.0
+offset_right = 303.0
+offset_bottom = 106.0
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "WARNING: returning to the starting menu will not save the game, forcing the player to start over."
+label_settings = SubResource("LabelSettings_r8yp4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

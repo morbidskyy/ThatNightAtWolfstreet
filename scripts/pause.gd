@@ -26,4 +26,5 @@ func _on_resume_pressed() -> void:
 	resume()
 
 func _on_start_menu_pressed() -> void:
+	resume()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

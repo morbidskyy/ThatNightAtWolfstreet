@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvvlwe8d7utmg"]
+[gd_scene load_steps=6 format=3 uid="uid://bvvlwe8d7utmg"]
 
 [ext_resource type="Script" uid="uid://nb5rq286sqwf" path="res://scripts/language_options_buttons.gd" id="1_11n60"]
+[ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="2_k7084"]
 
 [sub_resource type="Gradient" id="Gradient_11n60"]
 colors = PackedColorArray(0, 0, 0, 1, 0.09803922, 0.039215688, 0.13725491, 1)
@@ -9,6 +10,11 @@ colors = PackedColorArray(0, 0, 0, 1, 0.09803922, 0.039215688, 0.13725491, 1)
 gradient = SubResource("Gradient_11n60")
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o4akf"]
+font = ExtResource("2_k7084")
+font_size = 12
+font_color = Color(1, 1, 1, 0.39215687)
 
 [node name="language_options" type="Control"]
 layout_mode = 3
@@ -28,31 +34,48 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_k7084")
 
 [node name="language_options_buttons" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(303, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 2.0
+offset_left = -32.0
+offset_right = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("1_11n60")
 
-[node name="english" type="Button" parent="language_options_buttons"]
+[node name="Label" type="Label" parent="language_options_buttons"]
+custom_minimum_size = Vector2(303, 0)
 layout_mode = 2
+text = "Currently only english is available, sorry!"
+label_settings = SubResource("LabelSettings_o4akf")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="english" type="Button" parent="language_options_buttons"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k7084")
+theme_override_font_sizes/font_size = 20
 text = "english"
 
 [node name="polish" type="Button" parent="language_options_buttons"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k7084")
+theme_override_font_sizes/font_size = 20
 text = "polish"
 
 [node name="language_options_return" type="Button" parent="language_options_buttons"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k7084")
+theme_override_font_sizes/font_size = 20
 text = "return"
 
 [connection signal="pressed" from="language_options_buttons/english" to="language_options_buttons" method="_on_english_pressed"]

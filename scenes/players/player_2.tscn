@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c1q34qv7f1i5o" path="res://scripts/player_2.gd" id="1_rp56j"]
 [ext_resource type="Texture2D" uid="uid://dxhenu354545j" path="res://assets/players/player_2/player2.png" id="2_rp56j"]
 [ext_resource type="Texture2D" uid="uid://d0xvytohv1dsa" path="res://assets/players/player_2/light_cone.jpg" id="3_xd40s"]
-[ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/players/steps.wav" id="4_4lqqq"]
+[ext_resource type="AudioStream" uid="uid://ydo5p16na4kh" path="res://assets/audio/steps.wav" id="4_4lqqq"]
 
 [sub_resource type="Animation" id="Animation_nv60d"]
 length = 0.001
