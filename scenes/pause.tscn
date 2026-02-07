@@ -135,14 +135,14 @@ custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jn4bt")
 theme_override_font_sizes/font_size = 20
-text = "resume"
+text = "Resume"
 
 [node name="start_menu" type="Button" parent="pause_container/pause_bottons"]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jn4bt")
 theme_override_font_sizes/font_size = 20
-text = "starting menu"
+text = "Starting menu"
 
 [node name="Label" type="Label" parent="pause_container/pause_bottons/start_menu"]
 custom_minimum_size = Vector2(303, 0)

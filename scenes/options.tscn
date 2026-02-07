@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp8aybmax04se"]
+[gd_scene load_steps=9 format=3 uid="uid://bp8aybmax04se"]
 
+[ext_resource type="FontFile" uid="uid://dfmjcjst22m5r" path="res://assets/fonts/alagard.ttf" id="1_2iy26"]
 [ext_resource type="Script" uid="uid://165f7od4it4x" path="res://scripts/options.gd" id="1_c2u1v"]
+[ext_resource type="Script" uid="uid://bd7t2s1y2yw2i" path="res://scripts/sound_volume_slider.gd" id="2_kv8mn"]
 [ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="2_yjkok"]
 
 [sub_resource type="Gradient" id="Gradient_c2u1v"]
@@ -10,6 +12,14 @@ colors = PackedColorArray(0, 0, 0, 1, 0.09803922, 0.039215688, 0.13725491, 1)
 gradient = SubResource("Gradient_c2u1v")
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kv8mn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1sggn"]
+font = ExtResource("1_2iy26")
+font_size = 30
+outline_size = 20
+outline_color = Color(0.23921569, 0.14901961, 0.34509805, 1)
 
 [node name="options" type="Control"]
 layout_mode = 3
@@ -28,42 +38,80 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_yjkok")
 
-[node name="options_buttons" type="VBoxContainer" parent="."]
+[node name="options" type="Panel" parent="."]
+custom_minimum_size = Vector2(303, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="sound_volume_label" type="Label" parent="options"]
+custom_minimum_size = Vector2(303, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_top = 200.0
+offset_right = 151.5
+offset_bottom = 229.0
+grow_horizontal = 2
+text = "Sound volume"
+label_settings = SubResource("LabelSettings_1sggn")
+horizontal_alignment = 1
+
+[node name="sound_volume" type="HSlider" parent="options"]
+custom_minimum_size = Vector2(303, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_top = 248.0
+offset_right = 151.5
+offset_bottom = 264.0
+grow_horizontal = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_kv8mn")
+audio_bus_name = "Master"
+
+[node name="options_buttons" type="VBoxContainer" parent="options"]
 custom_minimum_size = Vector2(303, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -39.5
-offset_right = 39.5
+offset_left = -151.5
+offset_top = 280.0
+offset_right = 151.5
+offset_bottom = -204.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("1_c2u1v")
+metadata/_edit_use_anchors_ = true
 
-[node name="language" type="Button" parent="options_buttons"]
+[node name="language" type="Button" parent="options/options_buttons"]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yjkok")
 theme_override_font_sizes/font_size = 20
-text = "language"
+text = "Language"
 
-[node name="sound" type="Button" parent="options_buttons"]
+[node name="options_return" type="Button" parent="options/options_buttons"]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_yjkok")
 theme_override_font_sizes/font_size = 20
-text = "sound"
+text = "Return"
 
-[node name="options_return" type="Button" parent="options_buttons"]
-custom_minimum_size = Vector2(0, 72)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_yjkok")
-theme_override_font_sizes/font_size = 20
-text = "return"
-
-[connection signal="pressed" from="options_buttons/language" to="options_buttons" method="_on_language_pressed"]
-[connection signal="pressed" from="options_buttons/sound" to="options_buttons" method="_on_sound_pressed"]
-[connection signal="pressed" from="options_buttons/options_return" to="options_buttons" method="_on_options_return_pressed"]
+[connection signal="value_changed" from="options/sound_volume" to="options/sound_volume" method="_on_value_changed"]
+[connection signal="pressed" from="options/options_buttons/language" to="options/options_buttons" method="_on_language_pressed"]
+[connection signal="pressed" from="options/options_buttons/options_return" to="options/options_buttons" method="_on_options_return_pressed"]

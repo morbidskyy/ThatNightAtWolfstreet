@@ -62,21 +62,21 @@ custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k7084")
 theme_override_font_sizes/font_size = 20
-text = "english"
+text = "English"
 
 [node name="polish" type="Button" parent="language_options_buttons"]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k7084")
 theme_override_font_sizes/font_size = 20
-text = "polish"
+text = "Polish"
 
 [node name="language_options_return" type="Button" parent="language_options_buttons"]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_k7084")
 theme_override_font_sizes/font_size = 20
-text = "return"
+text = "Return"
 
 [connection signal="pressed" from="language_options_buttons/english" to="language_options_buttons" method="_on_english_pressed"]
 [connection signal="pressed" from="language_options_buttons/polish" to="language_options_buttons" method="_on_polish_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7812uj3kasmd"]
 
 [ext_resource type="Script" uid="uid://bega3rvhb88sq" path="res://scripts/canvas_dark.gd" id="1_g2h2n"]
-[ext_resource type="PackedScene" uid="uid://bu3bt1x2s1mpm" path="res://scenes/players/player_3.tscn" id="3_fiq81"]
+[ext_resource type="PackedScene" uid="uid://dw3o0pds6ej3a" path="res://scenes/players/player_2.tscn" id="2_ra442"]
 [ext_resource type="PackedScene" uid="uid://i5apm5v3kqve" path="res://scenes/pause.tscn" id="3_ra442"]
 
 [node name="level_2" type="Node2D"]
@@ -10,8 +10,8 @@
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_g2h2n")
 
+[node name="player2" parent="." instance=ExtResource("2_ra442")]
+
 [node name="level_2_canvas_layer" type="CanvasLayer" parent="."]
 
 [node name="pause" parent="level_2_canvas_layer" instance=ExtResource("3_ra442")]
-
-[node name="player_3" parent="." instance=ExtResource("3_fiq81")]
