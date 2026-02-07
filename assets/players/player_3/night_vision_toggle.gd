@@ -9,11 +9,13 @@ func _on_ready() -> void:
 func _input(_event):
 	if Input.is_action_just_pressed("toggle_nv") and is_ready:
 		is_ready = false
-		$"../nv_cooldown".start()
+		$"../nv_duration".start()
 		$nv_animation.play("nv_animation")
 		show()
+		$"../nv_cooldown".start()
+
+func _on_nv_duration_timeout() -> void:
+	hide()
 
 func _on_nv_cooldown_timeout() -> void:
-	$"../nv_cooldown".start()
 	is_ready = true
-	hide()

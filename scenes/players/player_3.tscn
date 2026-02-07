@@ -200,9 +200,13 @@ offset_top = -147.0
 offset_right = -262.0
 offset_bottom = -147.0
 
-[node name="nv_cooldown" type="Timer" parent="."]
+[node name="nv_duration" type="Timer" parent="."]
 process_callback = 0
 wait_time = 3.0
-one_shot = true
 
+[node name="nv_cooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 4.0
+
+[connection signal="timeout" from="nv_duration" to="night_vision_toggle" method="_on_nv_duration_timeout"]
 [connection signal="timeout" from="nv_cooldown" to="night_vision_toggle" method="_on_nv_cooldown_timeout"]
