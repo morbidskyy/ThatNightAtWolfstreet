@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed : int = 250
+var speed : int = 200
 
 @onready var animation_p1: AnimationPlayer=$player1_sprite/Animation_Player1
 

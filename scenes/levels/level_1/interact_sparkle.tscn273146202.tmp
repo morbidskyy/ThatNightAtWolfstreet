@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://8gxspjislm52"]
+
+[ext_resource type="Script" uid="uid://cx6lkitam6cnn" path="res://scripts/level_1/interact_sparkle.gd" id="1_emkoi"]
+[ext_resource type="Texture2D" uid="uid://cu2uhcyassuhu" path="res://assets/tilesets/room_walls_floors_and_decorations.png" id="2_o2dh5"]
+[ext_resource type="PackedScene" uid="uid://cev5r3hpubwl7" path="res://interactions/interaction_area.tscn" id="3_npsv8"]
+
+[sub_resource type="Animation" id="Animation_jd2u2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [84]
+}
+
+[sub_resource type="Animation" id="Animation_ic5l1"]
+resource_name = "sparkle_animaton"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [84, 85, 86]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wnpqp"]
+_data = {
+&"RESET": SubResource("Animation_jd2u2"),
+&"sparkle_animaton": SubResource("Animation_ic5l1")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykpow"]
+radius = 43.011627
+
+[node name="interact_sparkle" type="Node2D"]
+script = ExtResource("1_emkoi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o2dh5")
+hframes = 15
+vframes = 6
+frame = 84
+
+[node name="animation_spark" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_wnpqp")
+}
+
+[node name="interaction_area" parent="." instance=ExtResource("3_npsv8")]
+action_name = "collect"
+
+[node name="Collision_interaction" type="CollisionShape2D" parent="interaction_area"]
+shape = SubResource("CircleShape2D_ykpow")

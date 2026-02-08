@@ -222,4 +222,4 @@ shape = SubResource("CapsuleShape2D_d4nmj")
 [node name="step_1" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Camera_p1" type="Camera2D" parent="."]
-zoom = Vector2(2.3, 2.3)
+zoom = Vector2(2.8, 2.8)
