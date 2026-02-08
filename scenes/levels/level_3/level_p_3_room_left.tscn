@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn3kqo8vs1xm5"]
+
+[ext_resource type="PackedScene" uid="uid://bu3bt1x2s1mpm" path="res://scenes/players/player_3.tscn" id="1_nkphp"]
+
+[node name="level_p3_room_left" type="Node2D"]
+
+[node name="background" type="TileMapLayer" parent="."]
+
+[node name="deco" type="TileMapLayer" parent="."]
+
+[node name="player_3" parent="." instance=ExtResource("1_nkphp")]

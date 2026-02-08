@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwwauaye3mm36" path="res://dialogue/text_box.gd" id="1_753wr"]
 [ext_resource type="Texture2D" uid="uid://b7acq166savpj" path="res://dialogue/text_box.png" id="2_dwu1j"]
-[ext_resource type="FontFile" uid="uid://codcmwhj23oeu" path="res://dialogue/Pix32.ttf" id="3_3i8kt"]
+[ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="3_753wr"]
 
 [node name="text_box" type="MarginContainer"]
 texture_filter = 1
@@ -31,7 +31,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.646029, 0.646029, 0.646029, 1)
 theme_override_colors/font_shadow_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
-theme_override_fonts/font = ExtResource("3_3i8kt")
+theme_override_fonts/font = ExtResource("3_753wr")
 vertical_alignment = 1
 
 [node name="letter_display" type="Timer" parent="."]

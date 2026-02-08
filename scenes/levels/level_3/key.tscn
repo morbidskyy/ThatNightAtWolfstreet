@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4karotp56wem"]
+
+[ext_resource type="Script" uid="uid://dot6vfqkupdbq" path="res://scripts/key.gd" id="1_fl62b"]
+[ext_resource type="Texture2D" uid="uid://bxck2diqrojcl" path="res://assets/key_to_left_door.png" id="2_674k3"]
+[ext_resource type="AudioStream" uid="uid://dhj63rrcdjxsf" path="res://assets/audio/door_open.mp3" id="3_674k3"]
+[ext_resource type="AudioStream" uid="uid://brhsxqvpvvdej" path="res://assets/audio/key_pickup.mp3" id="4_3g0sg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3g0sg"]
+radius = 23.0
+
+[node name="key" type="StaticBody2D"]
+script = ExtResource("1_fl62b")
+
+[node name="key_sprite" type="Sprite2D" parent="."]
+position = Vector2(-6, -6)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_674k3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="key_colission" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, -6)
+shape = SubResource("CircleShape2D_3g0sg")
+
+[node name="sound_door_open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_674k3")
+
+[node name="sound_key_pickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3g0sg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

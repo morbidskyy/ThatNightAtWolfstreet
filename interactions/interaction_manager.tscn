@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh6mgjovddcie"]
+[gd_scene load_steps=3 format=3 uid="uid://bh6mgjovddcie"]
 
 [ext_resource type="Script" uid="uid://dphjtq6ok8in5" path="res://interactions/interaction_manager.gd" id="1_rcx0w"]
+[ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="2_8wbdq"]
 
 [node name="interaction_manager" type="Node2D"]
 script = ExtResource("1_rcx0w")
 
 [node name="Label" type="Label" parent="."]
+z_index = 5
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,6 +19,7 @@ offset_right = 50.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8wbdq")
 text = "[E] INTERACT"
 horizontal_alignment = 1
 vertical_alignment = 1

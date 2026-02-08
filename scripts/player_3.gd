@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animation_p3: AnimationPlayer = $player3_sprite/animation_p3
 
-var speed : int = 250
+var speed : int = 200
 
 
 func get_input():
