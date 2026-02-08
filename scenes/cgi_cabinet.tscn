@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://6jvnug5do2iq"]
+
+[ext_resource type="Script" uid="uid://db7a5kpcblaho" path="res://scripts/cgi_interaction.gd" id="1_a7jyh"]
+[ext_resource type="Texture2D" uid="uid://b1jan5roadruq" path="res://assets/cgi/cgi_plain_textures/cgi_inside_cabinet_no_handle.png" id="1_c56w7"]
+[ext_resource type="PackedScene" uid="uid://b8h0ka55xlyj8" path="res://scenes/cgi_flashlight.tscn" id="2_a7jyh"]
+[ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="3_xvi4b"]
+
+[sub_resource type="Gradient" id="Gradient_1e3i2"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_066lc"]
+gradient = SubResource("Gradient_1e3i2")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ypdgf"]
+diffuse_texture = SubResource("GradientTexture1D_066lc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xew4h"]
+texture = SubResource("CanvasTexture_ypdgf")
+
+[node name="cgi_cabinet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7jyh")
+
+[node name="cgi_cabinet_canvas_modulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="cgi_cabinet_container" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xew4h")
+
+[node name="cabinet_cgi_sprite" type="Sprite2D" parent="cgi_cabinet_container"]
+position = Vector2(578, 324.49997)
+scale = Vector2(1.6175, 1.6175)
+texture = ExtResource("1_c56w7")
+
+[node name="cgi_flashlight" parent="cgi_cabinet_container" instance=ExtResource("2_a7jyh")]
+position = Vector2(576, 320)
+
+[node name="cgi_leave" type="Button" parent="."]
+custom_minimum_size = Vector2(303, 72)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.5
+offset_top = -98.0
+offset_right = 151.5
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_xvi4b")
+theme_override_font_sizes/font_size = 20
+text = "Leave"
+
+[connection signal="pressed" from="cgi_leave" to="." method="_on_cgi_leave_pressed"]

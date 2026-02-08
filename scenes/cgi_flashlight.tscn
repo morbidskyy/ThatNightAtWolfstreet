@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8h0ka55xlyj8"]
+
+[ext_resource type="Script" uid="uid://d0bswyucrao23" path="res://scripts/cgi_flashlight.gd" id="1_usctj"]
+
+[sub_resource type="Gradient" id="Gradient_q8vil"]
+offsets = PackedFloat32Array(0, 0.45859873, 0.611465, 0.85987264, 1)
+colors = PackedColorArray(0.8381385, 0.8381385, 0.8381385, 1, 0.71575546, 0.71575546, 0.71575546, 1, 0.58655345, 0.58655345, 0.58655345, 1, 0.19108278, 0.19108278, 0.19108278, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_usctj"]
+gradient = SubResource("Gradient_q8vil")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[node name="cgi_flashlight" type="Node2D"]
+script = ExtResource("1_usctj")
+
+[node name="cgi_flashight_source" type="PointLight2D" parent="."]
+scale = Vector2(7.5, 7.5)
+color = Color(0.8392157, 0.8235294, 0, 1)
+texture = SubResource("GradientTexture2D_usctj")
