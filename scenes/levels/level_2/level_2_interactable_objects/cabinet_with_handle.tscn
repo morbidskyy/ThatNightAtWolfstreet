@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://db62tfe52j3h3"]
+
+[ext_resource type="Texture2D" uid="uid://bkl0613yc7nj" path="res://assets/tilesets/additional decorations.png" id="1_kfti8"]
+[ext_resource type="Script" uid="uid://ds8p5ht34fb7l" path="res://scripts/cabinet_with_handle.gd" id="1_rs77c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs77c"]
+size = Vector2(26, 23)
+
+[node name="cabinet_with_handle" type="StaticBody2D"]
+script = ExtResource("1_rs77c")
+
+[node name="cabinet_with_handle_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_kfti8")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="cabinet_with_handle_collission" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_rs77c")
+debug_color = Color(0.9660972, 0, 0.48560125, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
