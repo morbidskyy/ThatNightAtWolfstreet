@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dybbc6cn64k8o"]
 
 [ext_resource type="Script" uid="uid://db7a5kpcblaho" path="res://scripts/cgi_interaction.gd" id="1_d8dyr"]
-[ext_resource type="Texture2D" uid="uid://bfeonbw4myhnx" path="res://assets/cgi/cgi_plain_textures/cgi_behind_box.png" id="2_ee1n5"]
+[ext_resource type="Texture2D" uid="uid://bfeonbw4myhnx" path="res://assets/cgi/cgi_behind_box.png" id="2_ee1n5"]
 [ext_resource type="PackedScene" uid="uid://b8h0ka55xlyj8" path="res://scenes/levels/level_2/cgi_scenes/cgi_flashlight.tscn" id="3_5uu3a"]
 [ext_resource type="FontFile" uid="uid://b2duawo6i6gd8" path="res://assets/fonts/ModernDOS8x16.ttf" id="4_0ix3t"]
 

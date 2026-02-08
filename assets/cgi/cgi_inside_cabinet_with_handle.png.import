@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1jan5roadruq"
-path="res://.godot/imported/cgi_inside_cabinet_no_handle.png-36d537894f4252a0ac370b579c3f9281.ctex"
+uid="uid://bobm8tj4yer24"
+path="res://.godot/imported/cgi_inside_cabinet_with_handle.png-4d7b046ef214c29f0d0ba94a3800f551.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cgi/cgi_plain_textures/cgi_inside_cabinet_no_handle.png"
-dest_files=["res://.godot/imported/cgi_inside_cabinet_no_handle.png-36d537894f4252a0ac370b579c3f9281.ctex"]
+source_file="res://assets/cgi/cgi_inside_cabinet_with_handle.png"
+dest_files=["res://.godot/imported/cgi_inside_cabinet_with_handle.png-4d7b046ef214c29f0d0ba94a3800f551.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44hj18nvf8kq"
-path="res://.godot/imported/cgi_inside_cabinet_with_handle_n.png-ea050e2a49826ef30b3425b12cc7420e.ctex"
+uid="uid://6fsvk4yvmvvt"
+path="res://.godot/imported/cgi_inside_closet.png-24aaa5225537a721b4191d14731e799e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cgi/cgi_normal_maps/cgi_inside_cabinet_with_handle_n.png"
-dest_files=["res://.godot/imported/cgi_inside_cabinet_with_handle_n.png-ea050e2a49826ef30b3425b12cc7420e.ctex"]
+source_file="res://assets/cgi/cgi_inside_closet.png"
+dest_files=["res://.godot/imported/cgi_inside_closet.png-24aaa5225537a721b4191d14731e799e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfnhlav3ciypn"
-path="res://.godot/imported/cgi_behind_box_n.png-007a6e4302fd05c4ca0e81e6b6971298.ctex"
+uid="uid://b1jan5roadruq"
+path="res://.godot/imported/cgi_inside_cabinet_no_handle.png-24dceae237435cff72bcab02e69e6701.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cgi/cgi_normal_maps/cgi_behind_box_n.png"
-dest_files=["res://.godot/imported/cgi_behind_box_n.png-007a6e4302fd05c4ca0e81e6b6971298.ctex"]
+source_file="res://assets/cgi/cgi_inside_cabinet_no_handle.png"
+dest_files=["res://.godot/imported/cgi_inside_cabinet_no_handle.png-24dceae237435cff72bcab02e69e6701.ctex"]
 
 [params]
 
