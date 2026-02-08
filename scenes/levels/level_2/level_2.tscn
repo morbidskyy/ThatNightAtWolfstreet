@@ -16,6 +16,7 @@ offset_bottom = 1173.0
 color = Color(0, 0, 0, 1)
 
 [node name="level_2_canvas_modulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_g2h2n")
 

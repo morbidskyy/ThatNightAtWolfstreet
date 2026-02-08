@@ -80,6 +80,4 @@ theme_override_fonts/font = ExtResource("4_wdv7s")
 theme_override_font_sizes/font_size = 20
 text = "Leave"
 
-[node name="cgi_animation_player" type="AnimationPlayer" parent="."]
-
 [connection signal="pressed" from="cgi_leave" to="." method="_on_cgi_leave_pressed"]
