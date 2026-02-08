@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjr6oh8lanms7"]
+
+[ext_resource type="Script" uid="uid://dwwauaye3mm36" path="res://dialogue/text_box.gd" id="1_753wr"]
+[ext_resource type="Texture2D" uid="uid://b7acq166savpj" path="res://dialogue/text_box.png" id="2_dwu1j"]
+[ext_resource type="FontFile" uid="uid://codcmwhj23oeu" path="res://dialogue/Pix32.ttf" id="3_3i8kt"]
+
+[node name="text_box" type="MarginContainer"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_753wr")
+
+[node name="background" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_dwu1j")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="text_margins" type="MarginContainer" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="text" type="Label" parent="text_margins"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.646029, 0.646029, 0.646029, 1)
+theme_override_colors/font_shadow_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+theme_override_fonts/font = ExtResource("3_3i8kt")
+vertical_alignment = 1
+
+[node name="letter_display" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="letter_display" to="." method="_on_letter_display_timeout"]
