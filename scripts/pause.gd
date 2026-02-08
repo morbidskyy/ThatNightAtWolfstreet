@@ -1,16 +1,16 @@
 extends Control
 
 func _on_ready() -> void:
-	$AnimationPlayer.play("RESET")
+	$pause_animation_player.play("RESET")
 	hide()
 
 func resume():
 	get_tree().paused = false
-	$AnimationPlayer.play_backwards("blur")
+	$pause_animation_player.play_backwards("blur")
 
 func pause():
 	get_tree().paused = true
-	$AnimationPlayer.play("blur")
+	$pause_animation_player.play("blur")
 	show()
 
 func test_esc():
