@@ -2,7 +2,7 @@ extends StaticBody2D
 
 signal door_opened
 
-func _onready():
+func _on_ready() -> void:
 	$cabinet_with_handle_player.play("cabinet_with_handle_sparkles")
 
 var handle_taken = false

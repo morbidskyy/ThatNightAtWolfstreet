@@ -1,48 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bomsuwoid1yk4"]
+[gd_scene load_steps=4 format=3 uid="uid://bomsuwoid1yk4"]
 
 [ext_resource type="Script" uid="uid://cvg4hiipgf1w6" path="res://scenes/levels/level_2/level_2_interactable_objects/box.gd" id="1_0wfsx"]
 [ext_resource type="Texture2D" uid="uid://cu2uhcyassuhu" path="res://assets/tilesets/room_walls_floors_and_decorations.png" id="1_04q7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04q7j"]
 radius = 20.0
-
-[sub_resource type="Animation" id="Animation_04q7j"]
-resource_name = "box_sparkles"
-loop_mode = 1
-step = 0.333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sparkles:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333, 0.666),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [86, 84, 85]
-}
-
-[sub_resource type="Animation" id="Animation_0wfsx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sparkles:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [86]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3l7j"]
-_data = {
-&"RESET": SubResource("Animation_0wfsx"),
-&"box_sparkles": SubResource("Animation_04q7j")
-}
 
 [node name="box" type="StaticBody2D"]
 script = ExtResource("1_0wfsx")
@@ -53,19 +15,8 @@ hframes = 15
 vframes = 6
 frame = 24
 
-[node name="sparkles" type="Sprite2D" parent="."]
-texture = ExtResource("1_04q7j")
-hframes = 15
-vframes = 6
-frame = 86
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="box_collision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_04q7j")
-
-[node name="box_player" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_m3l7j")
-}

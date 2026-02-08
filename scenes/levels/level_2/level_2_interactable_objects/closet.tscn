@@ -1,49 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bljqbi4dxq5vo"]
+[gd_scene load_steps=4 format=3 uid="uid://bljqbi4dxq5vo"]
 
 [ext_resource type="Script" uid="uid://rab7soyix04x" path="res://scenes/levels/level_2/level_2_interactable_objects/closet.gd" id="1_4k4n8"]
 [ext_resource type="Texture2D" uid="uid://bkl0613yc7nj" path="res://assets/tilesets/additional decorations.png" id="1_k12sj"]
-[ext_resource type="Texture2D" uid="uid://cu2uhcyassuhu" path="res://assets/tilesets/room_walls_floors_and_decorations.png" id="2_kem1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12sj"]
 radius = 25.0
-
-[sub_resource type="Animation" id="Animation_kem1o"]
-resource_name = "closet_sparkles"
-loop_mode = 1
-step = 0.333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sparkles:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333, 0.666),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [86, 84, 85]
-}
-
-[sub_resource type="Animation" id="Animation_4k4n8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sparkles:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [86]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dtlwo"]
-_data = {
-&"RESET": SubResource("Animation_4k4n8"),
-&"closet_sparkles": SubResource("Animation_kem1o")
-}
 
 [node name="closet" type="StaticBody2D"]
 script = ExtResource("1_4k4n8")
@@ -54,18 +15,7 @@ hframes = 4
 vframes = 2
 frame = 5
 
-[node name="sparkles" type="Sprite2D" parent="."]
-texture = ExtResource("2_kem1o")
-hframes = 15
-vframes = 6
-frame = 86
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="closet_collision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_k12sj")
-
-[node name="closet_player" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_dtlwo")
-}
