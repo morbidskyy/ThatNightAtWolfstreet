@@ -12,9 +12,9 @@ func _input(_event):
 		$"../nv_duration".start()
 		$nv_animation.play("nv_animation")
 		show()
-		$"../nv_cooldown".start()
 
 func _on_nv_duration_timeout() -> void:
+	$"../nv_cooldown".start()
 	hide()
 
 func _on_nv_cooldown_timeout() -> void:
