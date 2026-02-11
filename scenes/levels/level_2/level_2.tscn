@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7812uj3kasmd"]
+[gd_scene load_steps=16 format=4 uid="uid://c7812uj3kasmd"]
 
 [ext_resource type="Script" uid="uid://bega3rvhb88sq" path="res://scripts/canvas_dark.gd" id="1_g2h2n"]
 [ext_resource type="TileSet" uid="uid://4a6h60cuxcr5" path="res://assets/tilesets/walls_floor_deco_tileset.tres" id="2_fiq81"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bljqbi4dxq5vo" path="res://scenes/levels/level_2/level_2_interactable_objects/closet.tscn" id="4_ugaie"]
 [ext_resource type="Texture2D" uid="uid://dqbimwegbpr8x" path="res://icon.svg" id="5_hopjm"]
 [ext_resource type="PackedScene" uid="uid://drpstfvu3gpw6" path="res://scenes/levels/level_2/level_2_interactable_objects/normal_cabinet.tscn" id="5_iup6o"]
-[ext_resource type="PackedScene" uid="uid://db62tfe52j3h3" path="res://scenes/levels/level_2/level_2_interactable_objects/cabinet_with_handle.tscn" id="6_68es0"]
 [ext_resource type="Texture2D" uid="uid://cu2uhcyassuhu" path="res://assets/tilesets/room_walls_floors_and_decorations.png" id="7_e74df"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6exq"]
@@ -22,10 +21,12 @@ size = Vector2(20, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68es0"]
 size = Vector2(64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e74df"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_e74df"]
 radius = 35.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x6exq"]
+radius = 12.0
+height = 32.0
 
 [node name="level_2" type="Node2D"]
 
@@ -349,14 +350,6 @@ texture = ExtResource("5_hopjm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level_2_easter_egg"]
 shape = SubResource("RectangleShape2D_68es0")
 
-[node name="cabinet_with_handle" parent="." instance=ExtResource("6_68es0")]
-position = Vector2(240, 540)
-
-[node name="cabinet_with_handle_lvl_collision_shape" type="CollisionShape2D" parent="cabinet_with_handle"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_e74df")
-debug_color = Color(0.76073, 0.8036549, 0, 0.41960785)
-
 [node name="level_2_door" type="StaticBody2D" parent="."]
 position = Vector2(0, -48)
 
@@ -378,10 +371,12 @@ hframes = 15
 vframes = 6
 frame = 9
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_2_door"]
+shape = SubResource("CapsuleShape2D_x6exq")
+debug_color = Color(0.76073, 0.8036549, 0, 0.41960785)
+
 [node name="player2" parent="." instance=ExtResource("2_ra442")]
 
 [node name="level_2_canvas_layer" type="CanvasLayer" parent="."]
 
 [node name="pause" parent="level_2_canvas_layer" instance=ExtResource("3_ra442")]
-
-[connection signal="child_entered_tree" from="player2" to="level_2_door" method="_on_player_2_child_entered_tree"]
