@@ -16,12 +16,3 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("interact"):
 				print("door opened")
 				emit_signal("door_opened")
-				#get_tree().change_scene_to_file("res://scenes/levels/level_3/level_p3_room_1.tscn")
-
-func _on_lvl_2_door_area_2d_body_entered(_body: CharacterBody2D) -> void:
-	in_door_zone = true
-	print("near door")
-
-func _on_lvl_2_door_area_2d_body_exited(_body: CharacterBody2D) -> void:
-	in_door_zone = false
-	print("away from door")

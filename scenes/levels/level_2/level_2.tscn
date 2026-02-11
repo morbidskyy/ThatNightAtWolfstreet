@@ -1,18 +1,17 @@
-[gd_scene load_steps=13 format=4 uid="uid://c7812uj3kasmd"]
+[gd_scene load_steps=11 format=4 uid="uid://c7812uj3kasmd"]
 
 [ext_resource type="Script" uid="uid://bega3rvhb88sq" path="res://scripts/canvas_dark.gd" id="1_g2h2n"]
 [ext_resource type="TileSet" uid="uid://4a6h60cuxcr5" path="res://assets/tilesets/walls_floor_deco_tileset.tres" id="2_fiq81"]
 [ext_resource type="PackedScene" uid="uid://dw3o0pds6ej3a" path="res://scenes/players/player_2.tscn" id="2_ra442"]
 [ext_resource type="PackedScene" uid="uid://i5apm5v3kqve" path="res://scenes/pause.tscn" id="3_ra442"]
 [ext_resource type="Texture2D" uid="uid://dqbimwegbpr8x" path="res://icon.svg" id="5_hopjm"]
-[ext_resource type="PackedScene" uid="uid://bomsuwoid1yk4" path="res://scenes/levels/level_2/level_2_interactable_objects/box.tscn" id="5_ugaie"]
 [ext_resource type="PackedScene" uid="uid://db62tfe52j3h3" path="res://scenes/levels/level_2/level_2_interactable_objects/cabinet_with_handle.tscn" id="6_68es0"]
-[ext_resource type="PackedScene" uid="uid://bljqbi4dxq5vo" path="res://scenes/levels/level_2/level_2_interactable_objects/closet.tscn" id="6_iup6o"]
 [ext_resource type="Texture2D" uid="uid://cu2uhcyassuhu" path="res://assets/tilesets/room_walls_floors_and_decorations.png" id="7_e74df"]
-[ext_resource type="PackedScene" uid="uid://drpstfvu3gpw6" path="res://scenes/levels/level_2/level_2_interactable_objects/normal_cabinet.tscn" id="7_ses5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68es0"]
-size = Vector2(62, 61)
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e74df"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e74df"]
 radius = 33.0
@@ -37,29 +36,21 @@ tile_map_data = PackedByteArray("AAD9//3/AAAHAAAAAAD9//7/AAAHAAEAAAD9////AAABAAI
 tile_set = ExtResource("2_fiq81")
 
 [node name="level_2_easter_egg" type="StaticBody2D" parent="."]
-position = Vector2(0, 477.375)
+position = Vector2(0, 480)
 
 [node name="level_2_easter_egg_sprite" type="Sprite2D" parent="level_2_easter_egg"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_hopjm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level_2_easter_egg"]
-position = Vector2(0, 0.125)
 shape = SubResource("RectangleShape2D_68es0")
 
 [node name="cabinet_with_handle" parent="." instance=ExtResource("6_68es0")]
 position = Vector2(-72, -24)
 
-[node name="Node" type="Node" parent="."]
-
-[node name="box" parent="Node" instance=ExtResource("5_ugaie")]
-position = Vector2(136, -32)
-
-[node name="closet" parent="Node" instance=ExtResource("6_iup6o")]
-position = Vector2(96, -32)
-
-[node name="normal_cabinet" parent="Node" instance=ExtResource("7_ses5c")]
-position = Vector2(56, -32)
+[node name="cabinet_with_handle_lvl_collision_shape" type="CollisionShape2D" parent="cabinet_with_handle"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_e74df")
 
 [node name="level_2_door" type="StaticBody2D" parent="."]
 position = Vector2(0, -48)
@@ -87,6 +78,3 @@ frame = 9
 [node name="level_2_canvas_layer" type="CanvasLayer" parent="."]
 
 [node name="pause" parent="level_2_canvas_layer" instance=ExtResource("3_ra442")]
-
-[connection signal="body_entered" from="level_2_door/lvl_2_door_area_2d" to="cabinet_with_handle" method="_on_lvl_2_door_area_2d_body_entered"]
-[connection signal="body_exited" from="level_2_door/lvl_2_door_area_2d" to="cabinet_with_handle" method="_on_lvl_2_door_area_2d_body_exited"]
