@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bljqbi4dxq5vo"]
+[gd_scene load_steps=3 format=3 uid="uid://bljqbi4dxq5vo"]
 
-[ext_resource type="Script" uid="uid://rab7soyix04x" path="res://scenes/levels/level_2/level_2_interactable_objects/closet.gd" id="1_4k4n8"]
 [ext_resource type="Texture2D" uid="uid://bkl0613yc7nj" path="res://assets/tilesets/additional decorations.png" id="1_k12sj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12sj"]
-radius = 25.0
+radius = 30.0
 
 [node name="closet" type="StaticBody2D"]
-script = ExtResource("1_4k4n8")
 
 [node name="closet_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_k12sj")
@@ -19,3 +17,4 @@ frame = 5
 
 [node name="closet_collision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_k12sj")
+debug_color = Color(0.9660972, 0, 0.48560125, 0.41960785)
