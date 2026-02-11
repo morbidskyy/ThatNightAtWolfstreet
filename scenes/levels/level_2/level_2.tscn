@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c7812uj3kasmd"]
+[gd_scene load_steps=18 format=4 uid="uid://c7812uj3kasmd"]
 
 [ext_resource type="Script" uid="uid://bega3rvhb88sq" path="res://scripts/canvas_dark.gd" id="1_g2h2n"]
 [ext_resource type="TileSet" uid="uid://4a6h60cuxcr5" path="res://assets/tilesets/walls_floor_deco_tileset.tres" id="2_fiq81"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drpstfvu3gpw6" path="res://scenes/levels/level_2/level_2_interactable_objects/normal_cabinet.tscn" id="5_iup6o"]
 [ext_resource type="PackedScene" uid="uid://db62tfe52j3h3" path="res://scenes/levels/level_2/level_2_interactable_objects/cabinet_with_handle.tscn" id="6_68es0"]
 [ext_resource type="Texture2D" uid="uid://cu2uhcyassuhu" path="res://assets/tilesets/room_walls_floors_and_decorations.png" id="7_e74df"]
+[ext_resource type="Script" uid="uid://b7pvnlgn2db8b" path="res://scenes/levels/level_2/level_2_door.gd" id="8_ugaie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6exq"]
 size = Vector2(24, 24)
@@ -25,7 +26,7 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e74df"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e74df"]
-radius = 33.0
+radius = 35.0
 
 [node name="level_2" type="Node2D"]
 
@@ -358,6 +359,7 @@ shape = SubResource("RectangleShape2D_e74df")
 
 [node name="level_2_door" type="StaticBody2D" parent="."]
 position = Vector2(0, -48)
+script = ExtResource("8_ugaie")
 
 [node name="lvl_2_door_area_2d" type="Area2D" parent="level_2_door"]
 
@@ -382,3 +384,5 @@ frame = 9
 [node name="level_2_canvas_layer" type="CanvasLayer" parent="."]
 
 [node name="pause" parent="level_2_canvas_layer" instance=ExtResource("3_ra442")]
+
+[connection signal="child_entered_tree" from="player2" to="level_2_door" method="_on_player_2_child_entered_tree"]
